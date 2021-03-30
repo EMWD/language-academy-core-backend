@@ -774,3 +774,6 @@ venv/share/python-wheels/urllib3-1.25.8-py2.py3-none-any.whl
 venv/share/python-wheels/webencodings-0.5.1-py2.py3-none-any.whl
 venv/share/python-wheels/wheel-0.34.2-py2.py3-none-any.whl
 .vscode/settings.json
+__pycache__/main.cpython-38.pyc
+.vscode/.ropeproject/config.py
+.vscode/.ropeproject/objectdb
