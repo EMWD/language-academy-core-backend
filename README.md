@@ -1,2 +1,2 @@
 # language-academy-core-backend
-core_backend
+empty for now

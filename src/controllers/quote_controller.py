@@ -1,11 +1,14 @@
 import random
 from flask import Flask
 from flask_restful import Api, Resource, reqparse
-from src.controllers.quote_controller import *
 from data.quotes import quotes
+from libs.debugger.debugger import *
+from .api_version_controller import ApiVersionController
 
 class Quote(Resource):
+
     def get(self, id=0):
+
         if not id:
             return random.choice(quotes), 200
         for quote in quotes:

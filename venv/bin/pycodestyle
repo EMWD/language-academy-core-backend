@@ -1,4 +1,4 @@
-#!/home/klime/Desktop/Prog/Python/test_core_backend/venv/bin/python
+#!/home/klime/Desktop/PD/api-app/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
