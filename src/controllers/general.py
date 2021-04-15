@@ -4,17 +4,20 @@ from flask_restful import Api, Resource, reqparse
 from data.quotes import quotes
 from libs.debugger.debugger import *
 from .api_version_controller import ApiVersionController
+from src.models.general import *
 
 class Quote(Resource):
 
-    def get(self, id=0):
+    def get(self, id=''):
+            
+        # if not id:
+        #     return random.choice(quotes), 200
+        # for quote in quotes:
+        #     if(quote["id"] == id):
+        #         return quote, 200
+        # return "Quote not found", 404
 
-        if not id:
-            return random.choice(quotes), 200
-        for quote in quotes:
-            if(quote["id"] == id):
-                return quote, 200
-        return "Quote not found", 404
+        return getSMTH(id)
 
     def post(self, id):
         parser = reqparse.RequestParser()
