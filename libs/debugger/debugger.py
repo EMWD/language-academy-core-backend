@@ -4,7 +4,7 @@ from pprint import pp
 
 def de(obj, prefix=''):
     sys.exit(pp(obj))
-
+    
 
 def d(obj, prefix=''):
     pp(obj)
