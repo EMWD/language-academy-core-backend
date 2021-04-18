@@ -1,1 +1,1 @@
-from .setup import Setup
+from .setup import Db
