@@ -1,15 +1,15 @@
 import psycopg2
 from libs.debugger import *
-from src.db.setup import Setup
+from src.db.setup import Db
 
 def getSMTH(id):
 
     cid = f"'{id}'"
     select = f"""SELECT * FROM users WHERE cid = {cid}"""
 
-    conn = Setup.set_new_conn()
-    cursor = conn.cursor()
-    
+    db = Db()
+    cursor = db.create_cursor()
+
     try:
         cursor.execute(select)
 
@@ -22,8 +22,6 @@ def getSMTH(id):
     except TypeError as e:
         print(e)
 
-    cursor.close()
-    conn.commit()
-    conn.close()
+    db.kill_cursor(cursor)
 
     return res
