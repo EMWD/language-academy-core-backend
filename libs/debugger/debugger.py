@@ -3,14 +3,14 @@ from pprint import pp
 
 
 def de(obj, prefix=''):
-    sys.exit(pp(obj))
-    
+    sys.exit(obj)
+
 
 def d(obj, prefix=''):
     pp(obj)
 
 
-def arrd(arr, prefix=''):
+def arrd(arr: list, prefix='') -> list:
     my_type = '[' + arr.__class__.__name__ + '(' + str(len(arr)) + ')]:'
     print(prefix, my_type, sep='')
     prefix += '    '

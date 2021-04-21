@@ -5,17 +5,17 @@ class Config():
 
     _config = {
         'DEV_DB': {
-            'database': 'klime',
-            'user': 'klime',
-            'password': '1',
-            'host': '127.0.0.1',
-            'port': '5432',
+            'DATABASE': 'klime',
+            'USER': 'klime',
+            'PASSWORD': '1',
+            'HOST': '127.0.0.1',
+            'PORT': '5432',
         },
         'API_VERSIONS': [
             1, 2
         ],
         'ENDPOINTS': [
-            'tasks', 'views'
+            'TASKS', 'views'
         ],
     }
 
@@ -35,5 +35,5 @@ class Config():
 
         #TODO
         # if keys_count >= 1:
-        #     for key in range(keys_count): 
+        #     for key in range(keys_count):
         #     return self.get_value(keys[0])
