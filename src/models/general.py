@@ -2,6 +2,7 @@ import psycopg2
 from libs.debugger import *
 from src.db.setup import Db
 
+
 def getSMTH(id):
 
     cid = f"'{id}'"
@@ -13,14 +14,14 @@ def getSMTH(id):
     try:
         cursor.execute(select)
 
-        res = cursor.fetchall() 
+        res = cursor.fetchall()
         for external in res:
             for internal in range(len(external)):
                 if internal == 1:
-                    print(external[internal]) 
+                    print(external[internal])
 
     except TypeError as e:
-        print(e)
+        d(e)
 
     db.kill_cursor(cursor)
 

@@ -11,12 +11,12 @@ class Db():
     def __init__(self):
         try:
             self.connection = psycopg2.connect(
-                database = self.config.get_value(['DEV_DB', 'database']), 
-                user = self.config.get_value(['DEV_DB', 'user']),
-                password = self.config.get_value(['DEV_DB', 'password']), 
-                host = self.config.get_value(['DEV_DB', 'host']),  
-                port = self.config.get_value(['DEV_DB', 'port'])
-                )
+                database=self.config.get_value(['DEV_DB', 'DATABASE']),
+                user=self.config.get_value(['DEV_DB', 'USER']),
+                password=self.config.get_value(['DEV_DB', 'PASSWORD']),
+                host=self.config.get_value(['DEV_DB', 'HOST']),
+                port=self.config.get_value(['DEV_DB', 'PORT'])
+            )
         except:
             return "Unable to connect database"
 
