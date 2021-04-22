@@ -2,8 +2,7 @@ import random
 from flask import Flask
 from flask_restful import Api, Resource, reqparse
 from data.quotes import quotes
-from libs.debugger.debugger import *
-from .api_version_controller import ApiVersionController
+# from libs.debugger.debugger import *
 from src.models.general import *
 
 class Quote(Resource):

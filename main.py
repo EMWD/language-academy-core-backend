@@ -4,6 +4,8 @@ from flask_restful import Api, Resource, reqparse
 from config import *
 from libs.debugger.debugger import *
 from src.controllers import Quote
+import cowsay
+
 
 app = Flask(__name__)
 
