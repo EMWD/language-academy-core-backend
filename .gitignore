@@ -1,5 +1,4 @@
-draft.py
-# .vscode/
-# .vscode/settings.json
+.vscode/
+.vscode/settings.json
 venv/
 __pycache__/main.cpython-38.pyc
