@@ -6,7 +6,9 @@ For project setup run init.sh as:
 This script must create and activate virtual enviroment and also automatically install all dependencies. If there are mistakes, do it manually by your way.
 
 > python3 -m venv venv
+
 > source venv/bin/activate &&
+
 > pip3 install -r requirements.txt
 
 For app running start main.py
