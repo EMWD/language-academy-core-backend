@@ -11,15 +11,20 @@ class Config():
             'HOST': '127.0.0.1',
             'PORT': '5432',
         },
-        'API_VERSIONS': [
-            1, 2
-        ],
-        'ENDPOINTS': [
-            'TASKS', 'views'
-        ],
+        'API_VERSIONS': {
+            '1': 'api',
+        },
+        'API_ENDPOINTS': {
+            '1': {
+               'api/getall': 'get all api endpoints', 
+            },
+        },
     }
 
     def get_value(self, keys):
+        '''
+        usage sample: get_value(['DEV_DB', 'DATABASE'])
+        '''
 
         keys_count = len(keys)
         res = ''

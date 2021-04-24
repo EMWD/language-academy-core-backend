@@ -3,7 +3,7 @@ from pprint import pp
 
 
 def de(obj, prefix=''):
-    sys.exit(obj)
+    pp(exit(obj))
 
 
 def d(obj, prefix=''):
