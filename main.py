@@ -11,7 +11,10 @@ api = Api(app)
 
 # api.add_resource(ApiUsers, "/api", "/api/<string:id>")
 
-api.add_resource(ApiVersions, "/api/getall", "/api/getall/<string:id>")
+api.add_resource(ApiVersions, "/api/getversions", "/api/getversion/<string:id>")
+api.add_resource(ApiEndpoints, "/api/getendpoints", "/api/getendpoint/<string:id>")
+
+# api.add_resource(ApiEndpoints, "/api/getendpoints", "/api/getendpoint/<string:id>")
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)

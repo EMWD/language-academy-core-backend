@@ -1,5 +1,4 @@
-# from libs.debugger import *
-
+from libs.debugger import *
 
 class Config():
 
@@ -16,7 +15,7 @@ class Config():
         },
         'API_ENDPOINTS': {
             '1': {
-               'api/getall': 'get all api endpoints', 
+                'api/getall': 'get all api endpoints',
             },
         },
     }
@@ -40,5 +39,6 @@ class Config():
 
         #TODO
         # if keys_count >= 1:
-        #     for key in range(keys_count):
-        #     return self.get_value(keys[0])
+
+# Export Config instance
+config = Config()
