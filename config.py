@@ -38,7 +38,7 @@ class Config():
             return self.get_value([keys[0]]).get(keys[1])
 
         #TODO
-        # if keys_count >= 1:
+        # if keys_count >= n:
 
 # Export Config instance
 config = Config()

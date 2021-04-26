@@ -30,3 +30,6 @@ class Db():
     def kill_cursor(self, cursor):
         cursor.close()
         self.kill_connect()
+
+# Export Db instance
+# db = Db()

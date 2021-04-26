@@ -9,12 +9,12 @@ app = Flask(__name__)
 
 api = Api(app)
 
-# api.add_resource(ApiUsers, "/api", "/api/<string:id>")
-
+# get versions
 api.add_resource(ApiVersions, "/api/getversions", "/api/getversion/<string:id>")
+# get endpoints
 api.add_resource(ApiEndpoints, "/api/getendpoints", "/api/getendpoint/<string:id>")
-
-# api.add_resource(ApiEndpoints, "/api/getendpoints", "/api/getendpoint/<string:id>")
+# get users
+api.add_resource(ApiUsers, "/api/users", "/api/user/<string:id>")
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)

@@ -1,0 +1,30 @@
+#------
+ CRUD |
+#------
+
+#-----------------------
+CREATE TABLE tablename (
+   colname SERIAL
+);
+
+#-----------------------
+CREATE TABLE COMPANY(
+   ID  SERIAL PRIMARY KEY,
+   NAME           TEXT      NOT NULL,
+   AGE            INT       NOT NULL,
+   ADDRESS        CHAR(50),
+   SALARY         REAL
+);
+
+#-----------------------
+ALTER TABLE tableName ALTER COLUMN fieldName TYPE VARCHAR USING (cid::varchar)
+
+#---------
+ USEFULL |
+#---------
+
+#----------delete all tables-------------
+DROP SCHEMA public CASCADE;
+CREATE SCHEMA public; 
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO public;
