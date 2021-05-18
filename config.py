@@ -18,6 +18,22 @@ class Config():
                 'api/getall': 'get all api endpoints',
             },
         },
+        'FAKE_USERS': {
+            'Maxim': {
+                'surname': 'Vtulkin',
+                'group_name': 'two',
+                'phone': '88005553535',
+                'payment_date': '23232020',
+                'lessons_left': '228',
+            },
+            'Gennadiy': {
+                'surname': 'Rakin',
+                'group_name': 'third',
+                'phone': '78005553537',
+                'payment_date': '13232020',
+                'lessons_left': '342',
+            },
+        },
     }
 
     def get_value(self, keys):

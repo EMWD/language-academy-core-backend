@@ -16,9 +16,6 @@ api.add_resource(ApiEndpoints, "/api/getendpoints", "/api/getendpoint/<string:id
 # get users
 api.add_resource(ApiUsers, "/api/users", "/api/user/<string:id>")
 
-# TODO rebase this shit
-# get fake_users
-api.add_resource(ApiFakeUsers, "/api/fakeusers")
-
+# Made normal resolve about 2 diffrent start points
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(host='194.67.110.179', port=5000)
