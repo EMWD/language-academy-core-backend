@@ -42,5 +42,3 @@ class ApiUsers(Resource):
         
         else:
             return jsonify("NOT ENOUGH PARAMS")
-
-        return jsonify("SUCCESS")

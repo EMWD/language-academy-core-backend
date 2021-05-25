@@ -1,0 +1,1 @@
+curl http://localhost:5050/api/groups -d "name=the_group" -d "lang=eng" -d "level=2" -d "numbers=8" -d "action=test1212" -X POST -v

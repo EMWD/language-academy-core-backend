@@ -1,4 +1,6 @@
 import psycopg2
+import random
+import string
 from libs.debugger import *
 from src.db.setup import Db
 
@@ -8,9 +10,12 @@ class UsersModel:
         db = Db()
         cursor = db.create_cursor()
 
-        query = f"SELECT * FROM users"
+        query1 = f"SELECT * FROM users"
+        query2 = f"SELECT * FROM user_data"
+        query3 = f"SELECT * FROM user_pass"
+    
         try:
-            cursor.execute(query)
+            cursor.execute(query2)
             res = cursor.fetchall()
 
         except TypeError as e:
@@ -25,7 +30,7 @@ class UsersModel:
         cursor = db.create_cursor()
 
         id = str(id)
-        query = f"""SELECT * FROM users WHERE cid = '{id}'"""
+        query = f"""SELECT * FROM user_data WHERE uid = '{id}'"""
         try:
             cursor.execute(query)
             res = cursor.fetchall()
@@ -40,13 +45,15 @@ class UsersModel:
 
         return res
 
-    def add_user(seld, name, last_name, password):
+    def add_user(self, name, last_name, password):
         db = Db()
         cursor = db.create_cursor()
         
-        query1 = f"INSERT INTO users (uid) VALUES ('TEST_UID')"
-        query2 = f"INSERT INTO user_data (uid, name, last_name) VALUES ('TEST_UID', '{str(name)}', '{str(last_name)}')"
-        query3 = f"INSERT INTO user_pass (uid, pass) VALUES ('TEST_UID', {str(password)})"
+        test_uid = self.get_random_string(6)
+
+        query1 = f"INSERT INTO users (uid) VALUES ('{test_uid}')"
+        query2 = f"INSERT INTO user_data (uid, name, last_name) VALUES ('{test_uid}', '{str(name)}', '{str(last_name)}')"
+        query3 = f"INSERT INTO user_pass (uid, pass) VALUES ('{test_uid}', {str(password)})"
         
         try:
             cursor.execute(query1)
@@ -59,3 +66,6 @@ class UsersModel:
         db.kill_cursor(cursor)
 
         return 1
+
+    def get_random_string(self, length):
+        return ''.join(random.choice(string.ascii_uppercase + string.digits) for i in range(length))
