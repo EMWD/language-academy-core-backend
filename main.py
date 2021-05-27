@@ -19,4 +19,4 @@ api.add_resource(ApiUsers, "/api/users", "/api/user/<string:id>")
 api.add_resource(ApiGroups, "/api/groups")
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5050)
+    app.run(host='0.0.0.0', port=5000)
