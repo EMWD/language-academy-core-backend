@@ -1,23 +1,25 @@
-from flask import Flask, jsonify
-from flask_restful import Api, Resource, reqparse
+from flask import jsonify
+from flask_restful import Resource, reqparse
+
 from libs.debugger.debugger import *
-from src.models.users import UsersModel 
+from src.models.users import UsersModel
 
 
 class ApiUsers(Resource):
 
     def get(self, id=''):
         users_model = UsersModel()
+        response = []
 
-        if not id:
-            return jsonify(users_model.get_all_users())
+        if id:
+            response = users_model.get_user(id)
+        else:
+            response = users_model.get_all_users()
 
-        response = users_model.get_user(id)
-
-        if not response:
-            return jsonify("NO DATA OR WRONG REQUEST")
-
-        return jsonify(response)
+        if response:
+            return response
+        
+        return jsonify("NO DATA")
 
     def post(self):
         parser = reqparse.RequestParser()
@@ -39,6 +41,6 @@ class ApiUsers(Resource):
                 return jsonify("SUCCESS")
             else:
                 return jsonify("WE GOT PROBLEM")
-        
+
         else:
             return jsonify("NOT ENOUGH PARAMS")
