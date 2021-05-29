@@ -17,6 +17,8 @@ api.add_resource(ApiEndpoints, "/api/getendpoints", "/api/getendpoint/<string:id
 api.add_resource(ApiUsers, "/api/users", "/api/user/<string:id>")
 # groups
 api.add_resource(ApiGroups, "/api/groups")
+# hometasks
+api.add_resource(ApiHometasks, "/api/hometasks")
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)

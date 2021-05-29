@@ -1,6 +1,6 @@
-import psycopg2
 from libs.debugger import *
 from src.db.setup import Db
+from src.helpers.json_formatter import jf
 
 class GroupModel:
 
@@ -20,6 +20,7 @@ class GroupModel:
         
         db.kill_cursor(cursor)
 
+        res = jf.elems_to_obj(res, ['id', 'group_name', 'group_lang', 'group_level', 'count_of_students', '_action'])
         return res
 
     def add_group(self, name, lang, level, numbers, action):

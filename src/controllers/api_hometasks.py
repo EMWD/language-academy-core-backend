@@ -1,18 +1,18 @@
 from flask import Flask, jsonify
 from flask_restful import Api, Resource, reqparse
 from libs.debugger.debugger import *
-from src.models.groups import GroupModel 
+from src.models.hometasks import HometaskModel 
 
 
-class ApiGroups(Resource):
+class ApiHometasks(Resource):
 
     def get(self, id=''):
-        group_model = GroupModel()
+        hometask_model = HometaskModel()
 
         if not id:
-            return jsonify(group_model.get_all_groups())
+            return jsonify(hometask_model.get_all_hometasks())
 
-        response = group_model.get_user(id)
+        response = hometask_model.get_user(id)
 
         if not response:
             return jsonify("NO DATA OR WRONG REQUEST")
@@ -21,28 +21,27 @@ class ApiGroups(Resource):
 
     def post(self):
         parser = reqparse.RequestParser()
+        parser.add_argument("description")
         parser.add_argument("name")
-        parser.add_argument("lang")
-        parser.add_argument("level")
-        parser.add_argument("numbers")
+        parser.add_argument("duedate")
+        parser.add_argument("link")
         parser.add_argument("action")
         params = parser.parse_args()
 
         print(params)
 
+        description = params["description"]
         name = params["name"]
-        lang = params["lang"]
-        level = params["level"]
-        numbers = params["numbers"]
+        duedate = params["duedate"]
+        link = params["link"]
         action = params["action"]
 
         if name:
-
-            group_model = GroupModel()
-            res = group_model.add_group(name, lang, level, numbers, action)
+            hometask_model = HometaskModel()
+            res = hometask_model.add_hometask(description, name, duedate, link, action)
 
             if res:
-                return jsonify("GROUPS, SUCCESS")
+                return jsonify("HOMETASK, SUCCESS")
             else:
                 return jsonify("WE GOT PROBLEM")
         
