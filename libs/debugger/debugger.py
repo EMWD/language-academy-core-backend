@@ -16,7 +16,7 @@ def arrd(arr: list, prefix='') -> list:
     prefix += '    '
     for i in arr:
         if type(i) in (list, tuple, dict, set):
-            var_dump(i, prefix)
+            print(i, e)
         else:
             if isinstance(arr, dict):
                 print(

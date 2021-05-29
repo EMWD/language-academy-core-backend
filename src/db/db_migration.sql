@@ -29,7 +29,17 @@ CREATE TABLE GROUPS(
    ID  SERIAL PRIMARY KEY,
    GROUP_NAME           TEXT      NULL,
    GROUP_LANG           TEXT      NULL,
-   GROUP_LEVEL           TEXT     NULL,
-   COUNT_OF_STUDENTS           TEXT         NULL,
+   GROUP_LEVEL          TEXT      NULL,
+   COUNT_OF_STUDENTS    TEXT      NULL,
+   _ACTION              TEXT      NULL
+);
+
+-- hometasks part
+CREATE TABLE HOMETASKS(
+   ID  SERIAL PRIMARY KEY,
+   TASK_DESCRIPTION  TEXT      NULL,
+   TASK_NAME         TEXT      NULL,
+   DUE_DATE          TEXT      NULL,
+   LINKS             TEXT      NULL,
    _ACTION           TEXT      NULL
 );
