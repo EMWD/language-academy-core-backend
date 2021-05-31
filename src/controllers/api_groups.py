@@ -8,16 +8,18 @@ class ApiGroups(Resource):
 
     def get(self, id=''):
         group_model = GroupModel()
+        response = []
 
-        if not id:
-            return jsonify(group_model.get_all_groups())
+        # id is group_name
+        if id:
+            response = group_model.get_group_by_name(id)
+        else:
+            response = group_model.get_all_groups()
 
-        response = group_model.get_user(id)
-
-        if not response:
-            return jsonify("NO DATA OR WRONG REQUEST")
-
-        return jsonify(response)
+        if response:
+            return response
+        
+        return jsonify("NO DATA")
 
     def post(self):
         parser = reqparse.RequestParser()
