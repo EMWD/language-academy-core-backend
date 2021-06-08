@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 from flask_restful import Api, Resource, reqparse
 from libs.debugger.debugger import *
-from src.models.hometasks import HometaskModel 
+from src.models.hometasks import HometaskModel
 
 
 class ApiHometasks(Resource):
@@ -28,8 +28,6 @@ class ApiHometasks(Resource):
         parser.add_argument("action")
         params = parser.parse_args()
 
-        print(params)
-
         description = params["description"]
         name = params["name"]
         duedate = params["duedate"]
@@ -38,12 +36,13 @@ class ApiHometasks(Resource):
 
         if name:
             hometask_model = HometaskModel()
-            res = hometask_model.add_hometask(description, name, duedate, link, action)
+            res = hometask_model.add_hometask(
+                description, name, duedate, link, action)
 
             if res:
                 return jsonify("HOMETASK, SUCCESS")
             else:
                 return jsonify("WE GOT PROBLEM")
-        
+
         else:
             return jsonify("NOT ENOUGH PARAMS")

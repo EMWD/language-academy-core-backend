@@ -21,10 +21,8 @@ api.add_resource(ApiUsers, "/api/users", "/api/user/<string:id>")
 api.add_resource(ApiGroups, "/api/groups", "/api/group/<string:id>")
 # hometasks
 api.add_resource(ApiHometasks, "/api/hometasks")
-
-#spec API endpoints
-# test
-# api.add_resource(ApiTest, "/api/test")
+# auth
+api.add_resource(ApiAuth, "/api/auth")
 
 # For local launch
 # if __name__ == '__main__':

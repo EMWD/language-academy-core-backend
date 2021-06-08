@@ -1,6 +1,6 @@
 from flask import jsonify
 from flask_restful import Resource, reqparse
-
+from src.db.setup import Db
 from libs.debugger.debugger import *
 from src.models.users import UsersModel
 
@@ -26,16 +26,18 @@ class ApiUsers(Resource):
         parser.add_argument("name")
         parser.add_argument("lastname")
         parser.add_argument("password")
+        parser.add_argument("email")
         params = parser.parse_args()
 
         name = params["name"]
         last_name = params["lastname"]
         password = params["password"]
+        email = params["email"]
 
         if name and last_name and password:
 
             users_model = UsersModel()
-            res = users_model.add_user(name, last_name, password)
+            res = users_model.add_user(name, last_name, password, email)
 
             if res:
                 return jsonify("SUCCESS")

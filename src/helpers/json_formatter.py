@@ -2,7 +2,6 @@ from libs.debugger import *
 
 
 class JsonFormatter():
-
     def single_elem_to_obj(self, obj, keys):
         obj = list(obj[0])
         if not keys:
