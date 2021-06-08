@@ -24,7 +24,7 @@ class UsersModel:
 
         db.kill_cursor(cursor)
 
-        res = jf.elems_to_obj(res, ['id', 'uid', 'name', 'lastname'])
+        res = jf.elems_to_obj(res, ['id', 'uid', 'name', 'lastname', 'email'])
         return res
 
     def get_user(self, id):
@@ -41,16 +41,17 @@ class UsersModel:
 
         db.kill_cursor(cursor)
 
-        res = jf.single_elem_to_obj(res, ['id', 'uid', 'name', 'lastname'])
+        res = jf.single_elem_to_obj(res, ['id', 'uid', 'name', 'lastname', 'email'])
         return res
 
-    def add_user(self, name, last_name, password):
+    def add_user(self, name, last_name, password, email):
         db = Db()
         cursor = db.create_cursor()
 
         test_uid = self.get_random_string(6)
         query1 = f"INSERT INTO users (uid) VALUES ('{test_uid}')"
-        query2 = f"INSERT INTO user_data (uid, name, last_name) VALUES ('{test_uid}', '{str(name)}', '{str(last_name)}')"
+        query2 = f"INSERT INTO user_data (uid, name, last_name, email) VALUES \
+            ('{test_uid}', '{str(name)}', '{str(last_name)}', '{str(email)}')"
         query3 = f"INSERT INTO user_pass (uid, pass) VALUES ('{test_uid}', {str(password)})"
 
         try:
@@ -62,7 +63,7 @@ class UsersModel:
             return 0
 
         db.kill_cursor(cursor)
-        
+
         return 1
 
     def get_random_string(self, length):
