@@ -1,5 +1,6 @@
 import psycopg2
 from config import Config
+from .ip_resolver import ipr
 from libs.debugger import *
 
 
@@ -9,13 +10,15 @@ class Db():
     config = Config()
 
     def __init__(self):
+        
+        current_host = ipr.get_current_config_db_value()
         try:
             self.connection = psycopg2.connect(
-                database=self.config.get_value(['DEV_DB', 'DATABASE']),
-                user=self.config.get_value(['DEV_DB', 'USER']),
-                password=self.config.get_value(['DEV_DB', 'PASSWORD']),
-                host=self.config.get_value(['DEV_DB', 'HOST']),
-                port=self.config.get_value(['DEV_DB', 'PORT'])
+                database=self.config.get_value([current_host, 'DATABASE']),
+                user=self.config.get_value([current_host, 'USER']),
+                password=self.config.get_value([current_host, 'PASSWORD']),
+                host=self.config.get_value([current_host, 'HOST']),
+                port=self.config.get_value([current_host, 'PORT'])
             )
         except:
             return "Unable to connect database"
