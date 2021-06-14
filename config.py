@@ -10,6 +10,13 @@ class Config():
             'HOST': '127.0.0.1',
             'PORT': '5432',
         },
+        'PROD_DB': {
+            'DATABASE': 'postgres',
+            'USER': 'klime3',
+            'PASSWORD': '1',
+            'HOST': '127.0.0.1',
+            'PORT': '5432',
+        },
         'API_VERSIONS': {
             '1': 'api',
         },

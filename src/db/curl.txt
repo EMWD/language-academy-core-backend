@@ -6,7 +6,7 @@ curl http://localhost:5000/api/users -d "name=Vadim" -d "lastname=Dodikov" -d "p
 
 curl http://localhost:5000/api/hometasks -d "description=SomeDescription" -d "name=TaskName1" -d "duedate=12.12.23" -d "link=Link111" -d "action=YES|NO" -X POST -v
 
-curl http://localhost:5000/api/auth -d "email=testmail@ru.rr" -d "fullname=DisplayName" -d "googleuid=qwqw12121" -X POST -v
+curl http://localhost:5000/api/auth -d "email=testmail@ru.rr2" -d "fullname=Display Name" -d "googleuid=qwqw12121" -X POST -v
 
 # PROD
 
@@ -18,4 +18,4 @@ curl http://194.67.110.179:5000/api/groups -d "name=the_group" -d "lang=eng" -d 
 
 curl http://194.67.110.179:5000/api/hometasks -d "description=SomeDescription" -d "name=TaskName1" -d "duedate=12.12.23" -d "link=Link111" -d "action=YES|NO" -X POST -v
 
-curl http://194.67.110.179:5000/api/auth -d "email=testmail@ru.rr" -d "fullname=DisplayName" -d "googleuid=qwqw12121" -X POST -v
+curl http://194.67.110.179:5000/api/auth -d "email=testmail@ru.rr222" -d "fullname=Split Name" -d "googleuid=qwqw12121" -X POST -v
