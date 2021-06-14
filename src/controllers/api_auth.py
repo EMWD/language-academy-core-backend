@@ -11,6 +11,16 @@ class ApiAuth(Resource):
     def get(self, id=''):
         pass
 
+    def split_name(self, fullname):
+            name_parts = fullname.split(' ')
+
+            if len(name_parts) == 1:
+                return [fullname, fullname]
+            if len(name_parts) == 2:
+                return [name_parts[0], name_parts[1]]
+
+            return 0
+
     def post(self):
         parser = reqparse.RequestParser()
 
@@ -23,8 +33,8 @@ class ApiAuth(Resource):
         fullname = params["fullname"]
         # googleuid = params["googleuid"]
         
-        if email:
-            res = ''
+        if email and fullname:
+            error = ''
             auth_model = AuthModel(Db)
             user_model = UsersModel()
 
@@ -34,16 +44,16 @@ class ApiAuth(Resource):
                 return jsonify('OK')
 
             if not attempt:
-                name, last_name = fullname, fullname
-                password = '1'
-                if user_model.add_user(name, last_name, password, email):
-                    res = 'REG NEW USER'
+                name_parts = self.split_name(fullname)
+                if name_parts:
+                    name, last_name = name_parts
+                    password = '1'
+                    if not user_model.add_user(name, last_name, password, email):
+                        error = 'CANT ADD NEW USER'
+                else:
+                    error = "PROBLEM WITH NAME"
 
-        if res:
-            return jsonify(res + ", SUCCESS")
-        else:
+        if error:
             return jsonify("WE GOT PROBLEM")
-
-
-        def split_name(self, name):
-            return name.split(' ')
+        else:
+            return jsonify("SUCCESS POST")
