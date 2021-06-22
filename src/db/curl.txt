@@ -4,7 +4,9 @@ curl http://localhost:5000/api/groups -d "name=the_group" -d "lang=eng" -d "leve
 
 curl http://localhost:5000/api/users -d "name=Vadim" -d "lastname=Dodikov" -d "password=22222222" -d "email=test@mail.ru" -X POST -v
 
-curl http://localhost:5000/api/hometasks -d "description=SomeDescription" -d "name=TaskName1" -d "duedate=12.12.23" -d "link=Link111" -d "action=YES|NO" -X POST -v
+curl http://localhost:5000/api/hometasks -d "description=SomeDescription" -d "name=TaskName1" -d "duedate=12.12.23" -d "action=YES|NO" -X POST -v
+
+curl http://localhost:5000/api/links -d "link=TEST_BODY3333" -d "link=TEST_BODY4444" -X POST -v
 
 curl http://localhost:5000/api/auth -d "email=testmail@ru.rr2" -d "fullname=Display Name" -d "googleuid=qwqw12121" -X POST -v
 
@@ -16,6 +18,8 @@ curl http://194.67.110.179:5000/api/users -d "name=Vadim" -d "lastname=Dodikov" 
 
 curl http://194.67.110.179:5000/api/groups -d "name=the_group" -d "lang=eng" -d "level=2" -d "numbers=8" -d "action=test1212" -X POST -v
 
-curl http://194.67.110.179:5000/api/hometasks -d "description=SomeDescription" -d "name=TaskName1" -d "duedate=12.12.23" -d "link=Link111" -d "action=YES|NO" -X POST -v
+curl http://194.67.110.179:5000/api/hometasks -d "description=SomeDescription" -d "name=TaskName1" -d "duedate=12.12.23" -d "action=YES|NO" -X POST -v
 
 curl http://194.67.110.179:5000/api/auth -d "email=testmail@ru.rr222" -d "fullname=Split Name" -d "googleuid=qwqw12121" -X POST -v
+
+curl http://194.67.110.179:5000/api/links -d "link=TEST_BODY3333" -d "link=TEST_BODY4444" -X POST -v
