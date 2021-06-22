@@ -21,3 +21,5 @@ api.add_resource(ApiGroups, "/api/groups", "/api/group/<string:id>")
 api.add_resource(ApiHometasks, "/api/hometasks")
 # auth
 api.add_resource(ApiAuth, "/api/auth")
+# links
+api.add_resource(ApiLinks, '/api/links')

@@ -41,6 +41,14 @@ CREATE TABLE HOMETASKS(
    TASK_DESCRIPTION  TEXT      NULL,
    TASK_NAME         TEXT      NULL,
    DUE_DATE          TEXT      NULL,
-   LINKS             TEXT      NULL,
+   LINKS_ID          CHAR(8)   NULL,
    _ACTION           TEXT      NULL
 );
+
+--links part
+CREATE TABLE LINKS(
+   ID  SERIAL PRIMARY KEY,
+   LINK_ID          CHAR(8)   NULL,
+   LINK             TEXT      NULL
+);
+
