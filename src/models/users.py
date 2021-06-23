@@ -24,7 +24,7 @@ class UsersModel:
 
         db.kill_cursor(cursor)
 
-        res = jf.elems_to_obj(res, ['id', 'uid', 'name', 'lastname', 'email'])
+        res = jf.elems_to_obj(res, ['id', 'uid', 'name', 'lastname', 'email', 'guid'])
         return res
 
     def get_user(self, id):
@@ -41,17 +41,33 @@ class UsersModel:
 
         db.kill_cursor(cursor)
 
-        res = jf.single_elem_to_obj(res, ['id', 'uid', 'name', 'lastname', 'email'])
+        res = jf.single_elem_to_obj(res, ['id', 'uid', 'name', 'lastname', 'email', 'guid'])
         return res
 
-    def add_user(self, name, last_name, password, email):
+    def get_user_by_guid(self, guid):
+        db = Db()
+        cursor = db.create_cursor()
+        
+        query = f"""SELECT * FROM user_data WHERE guid = '{guid}'"""
+        try:
+            cursor.execute(query)
+            res = cursor.fetchall()
+        except TypeError as e:
+            d(e)
+
+        db.kill_cursor(cursor)
+
+        res = jf.single_elem_to_obj(res, ['id', 'uid', 'name', 'lastname', 'email', 'guid'])
+        return res
+
+    def add_user(self, name, last_name, password, email, guid=''):
         db = Db()
         cursor = db.create_cursor()
 
         test_uid = self.get_random_string(6)
         query1 = f"INSERT INTO users (uid) VALUES ('{test_uid}')"
-        query2 = f"INSERT INTO user_data (uid, name, last_name, email) VALUES \
-            ('{test_uid}', '{str(name)}', '{str(last_name)}', '{str(email)}')"
+        query2 = f"INSERT INTO user_data (uid, name, last_name, email, guid) VALUES \
+            ('{test_uid}', '{str(name)}', '{str(last_name)}', '{str(email)}', '{str(guid)}')"
         query3 = f"INSERT INTO user_pass (uid, pass) VALUES ('{test_uid}', {str(password)})"
 
         try:

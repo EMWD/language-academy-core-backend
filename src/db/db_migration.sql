@@ -17,7 +17,8 @@ CREATE TABLE USER_DATA(
    UID        CHAR(8),
    NAME            TEXT    NULL,
    LAST_NAME       TEXT    NULL,
-   EMAIL           TEXT    NULL
+   EMAIL           TEXT    NULL,
+   GUID            TEXT    NULL
 );
 CREATE TABLE USER_PASS(
    ID  SERIAL PRIMARY KEY,
