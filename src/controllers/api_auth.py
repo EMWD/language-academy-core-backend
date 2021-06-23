@@ -38,10 +38,6 @@ class ApiAuth(Resource):
             auth_model = AuthModel(Db)
             user_model = UsersModel()
 
-            exist_response = user_model.get_user_by_guid(googleuid)
-            if exist_response:
-                return exist_response
-
             attempt = auth_model.try_auth(email)
             if attempt:
                 return jsonify('OK')
@@ -55,6 +51,10 @@ class ApiAuth(Resource):
                         error = 'CANT ADD NEW USER'
                 else:
                     error = "PROBLEM WITH NAME"
+
+            exist_response = user_model.get_user_by_guid(googleuid)
+            if exist_response:
+                return exist_response
 
         if error:
             return jsonify("WE GOT PROBLEM")
