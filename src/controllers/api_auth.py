@@ -39,8 +39,9 @@ class ApiAuth(Resource):
             user_model = UsersModel()
 
             attempt = auth_model.try_auth(email)
+            exist_response = user_model.get_user_by_guid(googleuid)
             if attempt:
-                return jsonify('OK')
+                return exist_response
 
             if not attempt:
                 name_parts = self.split_name(fullname)
@@ -52,7 +53,6 @@ class ApiAuth(Resource):
                 else:
                     error = "PROBLEM WITH NAME"
 
-            exist_response = user_model.get_user_by_guid(googleuid)
             if exist_response:
                 return exist_response
 
