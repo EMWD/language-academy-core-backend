@@ -19,7 +19,7 @@ class ApiGroups(Resource):
         if response:
             return response
         
-        return jsonify("NO DATA")
+        return jsonify([])
 
     def post(self):
         parser = reqparse.RequestParser()
