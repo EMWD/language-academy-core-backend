@@ -15,7 +15,8 @@ class ApiHometasks(Resource):
         response = hometask_model.get_user(id)
 
         if not response:
-            return jsonify("NO DATA OR WRONG REQUEST")
+            print("NO DATA OR WRONG REQUEST")
+            return jsonify([])
 
         return jsonify(response)
 
