@@ -3,3 +3,4 @@
 venv
 __pycache__
 klime.session.sql
+docs/api_documentation.md
